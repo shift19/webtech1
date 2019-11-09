@@ -1,0 +1,27 @@
+th, td {
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    height: 50px;
+    color: black;
+    background-color: #85714D; /* gold */
+}
+
+tr {
+    white-space: nowrap;
+}
+
+tr:nth-child(odd) {
+    background-color: #D3BC8D; /* khaki */
+}
+
+tr:nth-child(even) {
+    background-color: #EEE1C6; /* cream */
+}
+
+tr:hover {
+    background-color: #EAAA00; /* gold */
+}

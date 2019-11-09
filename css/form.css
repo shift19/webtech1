@@ -1,0 +1,33 @@
+th, td {
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid lightgrey;
+}
+
+th {
+    height: 50px;
+}
+
+tr {
+    white-space: nowrap;
+}
+
+input, select {
+    border: 0;
+    width: 100%;
+    clear: both;
+}
+
+input[type=button] {
+    background-color: #D3BC8D; /* khaki */
+    color: black;
+    border: none;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+tr:hover {
+    background-color: #EAAA00; /* gold */
+}
