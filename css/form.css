@@ -18,7 +18,7 @@ input, select {
     clear: both;
 }
 
-input[type=button] {
+input[type=submit] {
     background-color: #D3BC8D; /* khaki */
     color: black;
     border: none;

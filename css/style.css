@@ -45,7 +45,7 @@ body {
 }
 
 #menubar .menuButton.active {
-    background-color:  #85714D; /* gold */
+    background-color: #85714D; /* gold */
     transition-duration: 1s;
 }
 
@@ -62,8 +62,8 @@ table {
 }
 
 .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="css\form.css"/>
+
 <!--
 "name":req.body.name,
 "consumption":req.body.consumption,
@@ -18,7 +19,7 @@
                 Name:
             </td>
             <td>
-                <input type="text" name="name" required="required" autofocus placeholder="Fiesta">
+                <input type="text" name="name" required autofocus placeholder="Fiesta">
             </td>
         </tr>
         <tr>
@@ -26,7 +27,7 @@
                 Consumption:
             </td>
             <td>
-                <input type="number" name="consumption" required="required" min="1" placeholder="8">
+                <input type="number" name="consumption" required min="1" placeholder="8">
             </td>
         </tr>
         <tr>
@@ -34,7 +35,7 @@
                 Color:
             </td>
             <td>
-                <input type="text" name="color" required="required"  placeholder="red">
+                <input type="text" name="color" required placeholder="red">
             </td>
         </tr>
         <tr>
@@ -50,7 +51,7 @@
                 Year:
             </td>
             <td>
-                <input type="number" name="year" required="required" min="1900" placeholder="1989">
+                <input type="number" name="year" required min="1800" placeholder="1989">
             </td>
         </tr>
         <tr>
@@ -58,7 +59,7 @@
                 Available:
             </td>
             <td>
-                <input type="number" name="available" required="required" min="1" placeholder="5">
+                <input type="number" name="available" required min="1" placeholder="5">
             </td>
         </tr>
         <tr>
@@ -66,12 +67,12 @@
                 Horsepower:
             </td>
             <td>
-                <input type="number" name="horsepower" required="required" min="1" placeholder="80">
+                <input type="number" name="horsepower" required min="1" placeholder="80">
             </td>
         </tr>
         <tr>
             <td id="submit" colspan="2">
-                <input type="button" name="submit" onclick="submitCar()" value="Add Car">
+                <input type="submit" name="submit" onclick="submitCar()" value="Add Car">
             </td>
         </tr>
     </table>
@@ -79,7 +80,7 @@
 </form>
 
 <script>
-    loadManufactuers();
+    loadManufacturers();
 </script>
 
 </html>

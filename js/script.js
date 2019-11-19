@@ -10,10 +10,16 @@ $(document).ready(function () {
         $(".active").removeClass("active");
         $(this).addClass("active");
     });
+
 });
 
 function submitManufacturer() {
     let form = $("#manufacturers");
+
+    form.submit(function f(event) {
+        event.preventDefault();
+    });
+
     let post_url = form.attr("action");
     let form_data = form.serializeArray();
     let data = {};
@@ -32,7 +38,13 @@ function submitManufacturer() {
 }
 
 function submitCar() {
+
     let form = $("#cars");
+
+    form.submit(function f(event) {
+        event.preventDefault();
+    });
+
     let post_url = form.attr("action");
     let form_data = form.serializeArray();
     let data = {};
@@ -50,7 +62,7 @@ function submitCar() {
             .attr("href"));
 }
 
-function loadManufactuers() {
+function loadManufacturers() {
     $.getJSON("manufacturers", function (data) {
         $.each(data, function (key, value) {
             $("#manufacturer")
@@ -68,41 +80,47 @@ function formatData(value) {
     return months[parseInt(retString[1]) - 1] + " " + parseInt(retString[2]) + ", " + retString[0];
 }
 
-function openManufactuer(manufacturer) {
+function openManufacturer(manufacturer) {
     document.cookie = "name=" + manufacturer;
     $.getJSON("manufacturer", function (data) {
-        let table = $('<table>');
+        console.log(data.length);
+        let manufacturers;
 
+        if (data.length) {
+            manufacturers = $('<table>');
+            $(manufacturers)
+                .attr('id', 'selected')
+                .append(
+                    $('<tr>').append(
+                        $('<th>').text("Name"),
+                        $('<th>').text("consumption"),
+                        $('<th>').text("color"),
+                        $('<th>').text("manufacturer"),
+                        $('<th>').text("year"),
+                        $('<th>').text("available"),
+                        $('<th>').text("horsepower")
+                    ));
 
-        $(table)
-            .attr('id', 'selected')
-            .append(
-                $('<tr>').append(
-                    $('<th>').text("Name"),
-                    $('<th>').text("consumption"),
-                    $('<th>').text("color"),
-                    $('<th>').text("manufacturer"),
-                    $('<th>').text("year"),
-                    $('<th>').text("available"),
-                    $('<th>').text("horsepower")
-                ));
-
-        $.each(data, function (key, value) {
-            let tr = $('<tr>').append(
-                $('<td>').text(value.name),
-                $('<td>').text(value.consumption),
-                $('<td>').text(value.color),
-                $('<td>').text(value.manufacturer),
-                $('<td>').text(value.year),
-                $('<td>').text(value.available),
-                $('<td>').text(value.horsepower)
-                )
-            ;
-            $(table).append(tr);
-        });
+            $.each(data, function (key, value) {
+                let tr = $('<tr>').append(
+                    $('<td>').text(value.name),
+                    $('<td>').text(value.consumption),
+                    $('<td>').text(value.color),
+                    $('<td>').text(value.manufacturer),
+                    $('<td>').text(value.year),
+                    $('<td>').text(value.available),
+                    $('<td>').text(value.horsepower)
+                );
+                $(manufacturers).append(tr);
+            });
+        } else {
+            manufacturers = $('<p>')
+                .attr('id', 'selected')
+                .text("No data found for " + manufacturer + ".");
+        }
 
         $('#selected').remove();
-        $("#content").append(table);
+        $("#content").append(manufacturers);
 
     });
 }
